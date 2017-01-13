@@ -1,0 +1,11 @@
+<div class="scrollable" ng-controller="carBuying-city">
+    <div class="scrollable-content ce-onSell">
+        <div class="sec-til">选择城市</div>
+        <div class="pro-sec" ng-repeat="item in area_data">
+            <p class="pro-til">{{item.name}}</p>
+            <div class="city-sec">
+                <a class="city-til"  ng-click="selectCity(item1.id+','+item1.name)" ng-repeat="item1 in item.city">{{item1.name}}</a>
+            </div>
+        </div>
+    </div>
+</div>

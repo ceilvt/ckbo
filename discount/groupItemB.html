@@ -1,0 +1,46 @@
+<div ui-content-for="title">
+    <span>惠购车</span>
+</div>
+<div class="scrollable" ng-controller="groupItemB">
+    <div class="scrollable-content ce-buy">
+        <div class="list-group no-margin">
+                <div class="ctxBox banner">
+                    <img ng-src="{{details_data.img}}">
+                    <span class="til">{{details_data.title}}</span>
+                    <p class="detail detail2">
+                        <span class="car-left pull-right">降{{details_data.difference_price}}万</span>
+                        <span class="new-price">{{details_data.new_price}}万</span>
+                        <span class="old-price">{{details_data.old_price}}万</span>
+                    </p>
+                </div>
+        </div>
+        <div class="list-group">
+            <div class="list-group-item line-detail">
+
+                <div class="detail-item car-item">
+                    <span>提车地点：付款后通知</span>
+                </div>
+                <div class="detail-item car-item">
+                    <span>提示：{{details_data.notice}}</span>
+                </div>
+                <div class="detail-item car-item">
+                    <span>赠品：{{details_data.gift}}</span>
+                </div>
+                <p class="txt-center"><br>任何购车问题请拨打<br>010-57171355<br>周一至周日：9:00-21:00（仅收市话费）
+                </p>
+                <div class="car-space"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="ce-bottomBar" ng-controller="groupItemB">
+    <div class="buy-bottom">
+        <span class="btn-ask pull-left">
+            <img src="custom/img/serv.png" width="30px">
+        </span>
+        <a href="#/disAddInfo/{{dis_id}}">
+            <span class="btn-bottom-com">立即抢购</span>
+        </a>
+    </div>
+</div>

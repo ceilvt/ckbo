@@ -1,0 +1,55 @@
+<div ui-content-for="title">
+    <span>参数</span>
+</div>
+
+<div class="scrollable" ng-controller="ceParam">
+    <!--汽车列表-->
+    <div class="scrollable-content param-2">
+        <div class="scrollable-content carsDetail">
+            <!--字段名-->
+            <div class="cars-field">
+                <table class="baseParams">
+                    <tr nowrap="nowrap" ng-repeat="(x,y) in paramList">
+                        <td class="carsTitle">{{y.name}}</td>
+                    </tr>
+                </table>
+            </div>
+            <!--参数数据-->
+            <div class="cars-data">
+                <div class="scrollable-content data-2">
+                    <table style="width:{{t2Width}}px" class="baseParams">
+                        <tr nowrap="nowrap" ng-repeat="(x,y) in paramList">
+                            <td class="carsData" ng-repeat="obj in carsList">
+                                {{obj.param[y.feild]}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scrollable-content param-1">
+        <div class="scrollable-content">
+            <!--字段名-->
+            <div class="cars-field2 btn-hide">
+            </div>
+            <div class="cars-data">
+                <div class="scrollable-content data-1">
+                    <table style="width:{{t2Width}}px" class="ce-params">
+                        <tr>
+                            <td class="carsName" ng-repeat="param in carsList">{{param.name}}
+                                <span class="closeBtn" ng-click="delData($index)"><img src="custom/img/close.png" width="16"></span>
+                            </td>
+                        </tr>
+                    </table>
+                    <div>&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="paramTitle">基本参数</div>
+    <!--参数详情-->
+
+</div>

@@ -1,0 +1,95 @@
+<div ui-content-for="title">
+    <span>团购活动</span>
+</div>
+<div ui-content-for="navbarAction">
+</div>
+<div class="scrollable" ng-controller="groupBuyInfoCtrl">
+    <div class="scrollable-content ce-act">
+        <form name="groupBuyForm">
+            <!--选择车色-->
+            <div class="list-group no-margin ">
+                <div class="list-group-item">
+                    <div class="til">
+                        <span class="txt">选择车色</span>
+                        <div class="border"></div>
+                    </div>
+                    <div class="detail-item car-item">
+                        <span class="pull-left">车身：</span>
+                        <div class="car-act">
+                            <div class="row1">
+                                <a class="car-color"  style="background: {{x.type_alias}}" ng-click="selectColor($index,x)" ng-repeat="x in car_color">
+                                    <i class="fa fa-check-circle" ng-show="carColor == $index ? true :false"></i>
+                                </a>
+                            </div>
+                            <div class="row2">已选择：{{submit_data.car_color_name}}</div>
+                        </div>
+                    </div>
+                    <div class="detail-item car-item">
+                        <span class="pull-left">内饰：</span>
+                        <div class="car-act">
+                            <div class="row1">
+                                <a class="car-color"  style="background: {{x.type_alias}}" ng-click="selectTrim($index,x)" ng-repeat="x in car_inner_color">
+                                    <i class="fa fa-check-circle" ng-show="carTrim == $index ? true :false"></i>
+                                </a>
+                            </div>
+                            <div class="row2">已选择：{{submit_data.car_in_color_name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--团购活动详情-->
+            <div class="list-group no-margin ">
+                <div class="list-group-item">
+                    <div class="til">
+                        <span class="txt">活动详情</span>
+                        <div class="border"></div>
+                    </div>
+                    <!--<p>购车城市:{{submit_data.city.p_region_name}}&nbsp;{{submit_data.city.region_name}}</p>-->
+                    <p ng-click="openCityBar()">购车城市:{{carBuyingCity[1]}}&nbsp;&nbsp;></p>
+                </div>
+            </div>
+            <!--团购活动表单-->
+            <div class="list-group ce-act">
+                <div class="list-group-item">
+                    <div class="til">
+                        <span class="txt">报名信息</span>
+                        <div class="border"></div>
+                    </div>
+
+                        <p class="list">
+                            <span class="sec">您的姓名：</span>
+                            <span class="sec1">
+                                <input type="text" name="name" ng-model="submit_data.name" required>
+                            </span>
+                        </p>
+                        <p class="formTips" ng-if="!submit_data.name">请输入您的姓名</p>
+                        <p class="list">
+                            <span class="sec">手机号：</span>
+                            <span class="sec1">
+                                <input type="tel" name="tel" ng-model="submit_data.mobile" required minlength="11" maxlength="11" ng-pattern="/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[6-8]{1})|145|147)+\d{8})$/">
+                            </span>
+                        </p>
+                        <p class="formTips" ng-if="!submit_data.mobile">请输入您的手机号</p>
+                        <p class="formTips" ng-if="groupBuyForm.tel.$dirty && groupBuyForm.tel.$invalid">请输入正确的手机号</p>
+                </div>
+                <div class="form1">
+                    <div class="ce inquiryBtn" ng-click="infoAdd(submit_data.res_id)">提交申请</div>
+                    </div>
+            </div>
+
+            <div class="messBox" ng-if="isPanel" ng-click="close_result()">
+                <span class="messText" >
+                    <p class="mt_58">您的资料已经提交给客服</p>
+                    <p>我们会在三个工作日内联系您</p>
+                    <p style="color: red">将在3秒后返回表单页面</p>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+

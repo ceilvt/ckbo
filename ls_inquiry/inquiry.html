@@ -1,0 +1,54 @@
+<div ui-content-for="title">
+    <span>实时询价</span>
+</div>
+<div ng-controller="ceInquiry">
+    <div class="title_3 bg3">提交信息给销售顾问，得到最真实的车辆低价。</div>
+    <div class="ce-inqui">
+        <input class="title_3 mt_15 c3 b_none" placeholder="输入你心仪的车" ng-change="searchCars()" ng-model="searchKey"/>
+    </div>
+    <div class="scrollable-content findCars-wrap">
+        <div>
+            <div class="findCars" ng-repeat="cars in searchList">
+                <div class="ce-inqui" ng-click="sureCars(cars)">{{cars.name}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-group-item ce-act inquiry">
+        <p class="list">
+            <span class="sec">姓&nbsp;&nbsp;名：</span>
+            <span class="sec1">
+                 <input type="text" name="name" ng-model="submit_data.name" placeholder="请输入姓名" >
+            </span>
+        </p>
+        <p class="list">
+            <span class="sec">手&nbsp;机&nbsp;号：</span>
+            <span class="sec1">
+                <input type="tel" name="tel" ng-model="submit_data.mobile" placeholder="请输入手机号" required maxlength="11">
+            </span>
+        </p>
+        <p class="list">
+            <span class="sec">购车城市：</span>
+            <span class="sec2" ng-click="openCityBar()">{{carBuyingCity[1]}}&nbsp;&nbsp;></span>
+        </p>
+
+    </div>
+    <!--<city-Bar></city-Bar>-->
+
+    <textarea  class="beizhu" placeholder="备注" rows="4" cols="50"></textarea>
+    <div class="form1 fl">
+        <div class="ce inquiryBtn" ng-click="infoAdd()">提交申请</div>
+    </div>
+    <div class="messBox" ng-show="isPanel" ng-click="isPanel=!isPanel;ifWarning=false;">
+                    <span class="messText" ng-if="ifSubmit">
+                        <p class="mt_58">您的资料已经提交给客服<br>我们会在三个工作日内联系您</p>
+                    </span>
+                    <span class="messText" ng-if="ifWarning">
+                        <p class="mt_58">{{warning}}</p>
+                    </span>
+    </div>
+</div>
+
+
+
+

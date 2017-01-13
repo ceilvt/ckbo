@@ -1,0 +1,50 @@
+<div ui-content-for="title">
+    <span>订金抵现</span>
+</div>
+<div ng-controller="groupItemA">
+    <div class="scrollable" >
+        <div class="scrollable-content ce-buy">
+            <div class="list-group no-margin">
+                <div class="ctxBox banner">
+                    <img ng-src="{{details_data.img}}">
+                    <span class="til">{{details_data.title}}</span>
+                    <p class="detail detail2">
+                        <span>{{details_data.city.p_region_name}}&nbsp;{{details_data.city.region_name}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="list-group">
+                <div class="list-group-item line-detail">
+                    <div class="detail-item">
+                        <span>抵扣券:{{details_data.price}}元</span>
+                    <span class="pull-right">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{countdown[details_data.id]}}
+                    </span>
+                    </div>
+                    <div class="detail-item">优惠:{{details_data.sub_title}}</div>
+                    <div class="detail-item" ng-show="details_data.type == 2 ? true :false">礼包说明:<br>{{details_data.notice}}</div>
+                    <div class="detail-item">有效期:截止到{{details_data.end_time}}</div>
+                </div>
+
+            </div>
+            <div class="car-space"></div>
+        </div>
+    </div>
+    <div class="ce-bottomBar">
+        <div class="buy-tips">
+        <span>
+            <i class="fa fa-check-square"></i>厂家直销<i class="fa fa-check-square"></i>4S店提车<i class="fa fa-check-square"></i>不提车随时退<i class="fa fa-check-square"></i>过期自动退
+        </span>
+        </div>
+        <div class="buy-bottom">
+        <span class="btn-ask pull-left">
+            <img src="custom/img/serv.png" width="30px">
+        </span>
+
+        <span class="btn-bottom-com" ng-click="infoAdd(details_data.price)">立即抢购</span>
+
+        </div>
+
+    </div>
+</div>
+

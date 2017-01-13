@@ -1,0 +1,29 @@
+<div ui-content-for="title">
+    <span>定金抵现</span>
+</div>
+<div class="scrollable" ng-controller="ctrlOrderPay">
+    <div class="scrollable-content ce-order">
+        <div infinite-scroll='loadData()' infinite-scroll-distance='0'>
+            <div class="ctxBox list-group" ng-repeat="item in dataList">
+                <div class="list-group-item">
+                        <div class="thumb-item">
+                        <span class="thumb-left">
+                            <img ng-src="{{item.img}}">
+                        </span>
+                        <span class="thumb-right">
+                            <span class="thumb-right-title til-row1">{{item.title}}</span>
+                            <p class="order-intro">{{item.sub_title}}</p>
+                            <p>
+                                <span class="anthor">{{item.price}}元</span>
+                                <span class="ydl">抵{{item.arrived_price}}元</span>
+                            </p>
+                            <span class="thumb-btn order-btn-1" ng-click="details(item.id)">{{item.sign_num}}人购买</span>
+                        </span>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

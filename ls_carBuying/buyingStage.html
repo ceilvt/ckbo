@@ -1,0 +1,52 @@
+<div ui-content-for="title">
+    <span>购车分期</span>
+</div>
+
+<div class="scrollable" ng-controller="ctrlBuyingStage">
+    <div class="scrollable-content">
+        <img ng-src="{{details_data.img}}" style="width: 100%;">
+
+        <h5 class="ct_title pl_15">{{details_data.title}}</h5>
+
+        <img ng-src="{{details_data.gift_img}}" style="width: 100%;">
+
+        <div class="trb1">
+            <div class="trt1">活动内容</div>
+
+            <div class="section">
+                <div class="font_15">
+                    {{details_data.description}}
+                </div>
+            </div>
+            <div class="trt1">活动时间 </div>
+            <div class="section">
+                <h5 class="ct_title pl_15">{{details_data.start_time}}至{{details_data.end_time}}</h5>
+            </div>
+            <div class="trt1">分期内容</div>
+            <div class="section">
+                <div class="scrollable-content carsDetail" style="padding-top: 10px;">
+                    <div ng-bind-html="details_data.stage_content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="car-space"></div>
+        <!--<div class="bg1">
+            <div class="brt_1 fl">客服</div>
+            <a href="#/dataApplication">
+                <div class="brt_2 fl">分期购</div>
+            </a>
+        </div>-->
+
+    </div>
+</div>
+<div class="ce-bottomBar" ng-controller="ctrlBuyingStage">
+    <div class="buy-bottom">
+        <span class="btn-ask pull-left">
+            <i class="fa fa-weixin"></i>
+        </span>
+        <a href="#/dataApplication/{{BuyingStage_id}}">
+            <span class="btn-bottom-com">分期购</span>
+        </a>
+    </div>
+</div>

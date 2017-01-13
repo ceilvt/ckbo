@@ -1,0 +1,13 @@
+<div class="scrollable" ng-controller="ce-city">
+    <div class="scrollable-content ce-onSell">
+        <div class="sec-til">提车城市<i class="fa fa-times pull-right"></i></div>
+        <div class="pro-sec">
+            <p class="pro-til">河北</p>
+            <div class="city-sec">
+                <a ng-class="{true: 'city-til2', false: 'city-til'}[city == '石家庄']" class="city-til" data='石家庄' ng-click="selectCity($event)">石家庄</a>
+                <a ng-class="{true: 'city-til2', false: 'city-til'}[city == '锡林郭保定']" data='锡林郭保定' ng-click="selectCity($event)">锡林郭保定</a>
+                <a ng-class="{true: 'city-til2', false: 'city-til'}[city == '2']" data='2' ng-click="selectCity($event)">锡林郭保定</a>
+            </div>
+        </div>
+    </div>
+</div>

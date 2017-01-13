@@ -1,0 +1,44 @@
+<div ui-content-for="title">
+    <span>口碑资讯</span>
+</div>
+<div class="scrollable" ng-controller="ceNewsList">
+    <div class="scrollable-content ce-onSell">
+        <div class="banner home-banner">
+            <ng-swiper-container show-nav-buttons="false" autoplay="1000" speed="2000" loop="true" looped-slides="2" show-pagination="true">
+                <ng-swiper-slide class="swiper-slide" ng-repeat="banner in banner_home1">
+                    <a href={{banner.url}}>
+                        <img ng-src="{{banner.img}}">
+                    </a>
+                </ng-swiper-slide>
+            </ng-swiper-container>
+        </div>
+        <div class="list-group">
+            <div class="ctxBox btn-onSell ">
+                <a href="#/market">行情
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+                <span class="seprate"></span>
+                <a href="#/evaluate">评测
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="sliderDiv">
+                <div class="list-group-item">
+                    <div class="thumb-item" ng-repeat="disItem in newsList">
+                    <span class="thumb-left">
+                        <img ng-src="{{disItem.img}}">
+                    </span>
+                    <span class="thumb-right newslist">
+                        <a class="thumb-right-title til-row1" href="#/article/{{disItem.id}}">{{disItem.title}}</a>
+                        <div class="til-row2">
+                            <div class="thumb-price-group colour_1">{{disItem.source}}</div>
+                            <div class="thumb-btn-group">阅读：{{disItem.show_num}}</div>
+                        </div>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

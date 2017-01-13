@@ -1,0 +1,71 @@
+<div ng-controller="kbModelCrl">
+    <div ui-content-for="title" >
+        <div class="title_1" ><span class="sel_t1">品牌</span></div>
+        <div class="title_1"  ng-click="gotoCl2()"><span>条件</span></div>
+    </div>
+
+    <!--<div ui-content-for="navbarAction">
+        <div ui-toggle="uiSidebarRight" class="btn sidebar-right-toggle">
+            <i class="fa fa-search  mySearch"></i>
+        </div>
+    </div>-->
+
+    <div class="scrollable" >
+        <div class="scrollable-content">
+
+            <span class="title_2">热门品牌</span>
+
+            <div class="section">
+                <ul class="Mr_t15 justified">
+                    <li class="t-icon" ng-repeat="item1 in hot_brand1">
+                        <img ng-src="{{item1.img}}" ng-click="openModalPanel(item1.id)">
+                        <span>{{item1.name}}</span>
+                    </li >
+                </ul>
+                <ul class="Mr_t15 justified">
+                    <li class="t-icon" ng-repeat="item2 in hot_brand2">
+                        <img ng-src="{{item2.img}}" ng-click="openModalPanel(item2.id)">
+                        <span>{{item2.name}}</span>
+                    </li >
+                </ul>
+            </div>
+
+            <!-- 主打车 -->
+            <div class="title_2">主打车<div class="t_boxs">广告</div> </div>
+
+            <div class="section">
+
+                <ul class="Mr_t15 justified">
+                    <li class="t-icon" ng-repeat="item in main_car">
+                        <a href="{{item.url}}">
+                            <img ng-src="{{item.img}}">
+                        </a>
+                        <span>{{item.title}}</span>
+                    </li >
+                </ul>
+
+            </div>
+            <div id="cars-wrapper"  ng-repeat="(chart,chartItem) in charSets">
+                <span class="title_2" id="{{chart}}_link">{{chart}}</span>
+                <div class="carBoxArr" ng-repeat="brand in chartItem" ng-click="openModalPanel(brand.id)">
+                    <img ng-src={{brand.img}} />
+                    <span ng-click="openModalPanel(brand.id)">{{brand.name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="rightBox">
+            <span ng-click="gotoLetter(chart)" ng-repeat="(chart,index) in charSets">{{chart}}</span>
+        </div>
+    </div>
+
+    <div class="scrollable mask " ng-show="modalShow" ng-click="closeModalPanel()">
+        <div class="myScrollable scrollable-content" ng-click="stopClose($event)">
+            <span class="title_2">{{currentBrandList.brand_name}}</span>
+            <div class="carBox2"  ng-repeat="carsItem in currentBrandList.son_series" ng-click="gotoModalDetail(carsItem.id)">
+                <img class="box_2" ng-src={{carsItem.img}} >
+                <span class="mt_1">{{carsItem.name}}</span>
+                <span class="mt_2 colour_1">{{carsItem.min_price}}-{{carsItem.max_price}}</span>
+            </div>
+        </div>
+    </div>
+</div>

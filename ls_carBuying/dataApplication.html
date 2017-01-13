@@ -1,0 +1,42 @@
+<div ng-controller="ctrlBuyingInfo">
+    <div ui-content-for="title">
+        <span>资料申请</span>
+    </div>
+
+    <div class="title_3 fl mt_15 b_none">贷款人填写信息</div>
+
+    <hr class="hr3 fl mt_13 mb_0"/>
+
+    <div class="fl dADiv"></div>
+    <span class="title_3 fl mt_15">上牌城市</span>
+    <span class="mg b_none f-c" placeholder="请选择上牌城市">{{carBuyingCity[1]}}</span><span class="Arrow" ng-click="toggleCity()">></span>
+
+    <hr class="hr3 fl mt_13 mb_0"/>
+    <span class="title_3 fl mt_15">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+    <input class="mg b_none f-c" ng-model="submit_data.name" type="text" placeholder="请输入姓名" required/>
+    <hr class="hr3 fl mt_13 mb_0"/>
+    <span class="title_3 fl mt_15">手&nbsp;&nbsp;机&nbsp;&nbsp;号</span>
+    <input class="mg b_none f-c"  ng-model="submit_data.mobile" placeholder="请输入手机号" required minlength="11" maxlength="11" ng-pattern="/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[6-8]{1})|145|147)+\d{8})$/"/>
+    <hr class="hr3 fl mt_13 mb_0"/>
+    <span class="title_3 fl mt_15">身份证号</span>
+    <input class="mg b_none f-c" minlength="18" ng-model="submit_data.id_card" placeholder="请输入身份证号"/>
+    <hr class="hr3 fl mt_13 mb_0"/>
+    <div class="fl dADiv"></div>
+
+    <div class="form1 fl">
+        <span class="ce inquiryBtn" ng-click="infoAdd(submit_data.res_id)">提交申请</span>
+    </div>
+
+
+    <div class="messBox" ng-if="isPanel" ng-click="close_result()">
+        <span class="messText">
+            <p class="mt_58">您的资料已经提交给客服</p>
+            <p>我们会在三个工作日内联系您</p>
+            <p style="color: red">将在3秒后返回表单页面</p>
+         </span>
+    </div>
+
+</div>
+
+
+

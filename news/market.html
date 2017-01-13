@@ -1,0 +1,24 @@
+<div ui-content-for="title">
+    <span>行情资讯</span>
+</div>
+<div class="scrollable" ng-controller="ceMarketList">
+    <div class="scrollable-content ce-onSell">
+        <div class="list-group" infinite-scroll='loadNewList()' infinite-scroll-distance='0'>
+                <div class="list-group-item">
+                    <div class="thumb-item" ng-repeat="disItem in newsList">
+                    <span class="thumb-left">
+                        <img ng-src="{{disItem.img}}">
+                    </span>
+                    <span class="thumb-right newslist">
+                        <a class="thumb-right-title til-row1" href="#/article/{{disItem.id}}">{{disItem.title}}</a>
+                        <div class="til-row2">
+                            <div class="thumb-price-group colour_1">{{disItem.source}}</div>
+                            <div class="thumb-btn-group">阅读：{{disItem.show_num}}</div>
+                        </div>
+                    </span>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>

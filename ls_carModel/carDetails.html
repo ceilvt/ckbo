@@ -1,0 +1,67 @@
+<div ui-content-for="title" ng-controller="kbSeriesCrl">
+    <span>{{series_data.name}}</span>
+</div>
+
+
+<div class="scrollable" ng-controller="kbSeriesCrl">
+
+    <div class="scrollable-content color_3">
+
+        <div class="section t_0">
+
+            <img ng-src="{{series_data.img}}" width="100%">
+
+            <div class="imgBg cdBox">
+
+                <div class="cdT1"><img ng-src="{{series_data.brand_img}}"></div>
+
+                <span class="cdT2">{{series_data.name}}</span>
+
+            </div>
+
+            <div class="app-title font_15">
+                <span class="column fontLeft colour_1 pl_15">{{series_data.min_price}}-{{series_data.max_price}}万</span>
+                <span class="column fontRight">油耗{{series_data.min_oil_offical}}-{{series_data.max_oil_offical}}L</span>
+            </div>
+
+        </div>
+
+        <div class="mt_15 section">
+
+            <div class="app-title font_15" ng-click="showBox()">
+                <span class="column fontLeft">综述</span>
+            <span class="column fontRight">
+                <i ng-class="{true: 'fa-chevron-down', false: 'fa-chevron-right'}[sel]" style="color: #000;" class="fa"></i>
+            </span>
+            </div>
+
+            <div ng-show="kk">
+
+                <div class="app-title font_15" ng-repeat="item in car_data" ng-click="gotoCarsParam(series_data.id)">
+                    <span class="column fontLeft w_57">{{item.name}}</span>
+                    <span class="column fontRight">指导价 :{{item.price}}万</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="mt_15 section">
+
+            <div class="app-title font_15" ng-click="gotoCarsParam(series_data.id)">
+                <span class="column fontLeft">参数</span>
+                <span class="column fontRight">
+                          <i style="  color: #000;" class="fa-chevron-right fa"></i>
+                </span>
+
+            </div>
+
+            <div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

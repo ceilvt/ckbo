@@ -1,0 +1,50 @@
+<div ui-content-for="title">
+    <span>惠购车</span>
+</div>
+<div class="scrollable" ng-controller="ceDiscount">
+    <div class="scrollable-content ce-onSell">
+        <div class="banner home-banner">
+            <ng-swiper-container show-nav-buttons="false" autoplay="1000" speed="2000" loop="true" looped-slides="2" show-pagination="true">
+                <ng-swiper-slide class="swiper-slide" ng-repeat="banner in banner_home1">
+                    <a href={{banner.url}}>
+                        <img ng-src="{{banner.img}}">
+                    </a>
+                </ng-swiper-slide>
+            </ng-swiper-container>
+        </div>
+        <div class="list-group">
+            <div class="ctxBox btn-onSell">
+                <a href="#/disList/">最新发布
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+                <span class="seprate"></span>
+                <a href="#/disAllCars">全部车型
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="sliderDiv" >
+                <div class="list-group-item">
+                    <div class="thumb-item" ng-repeat="disItem in discount_list">
+                    <span class="thumb-left">
+                        <img ng-src="{{disItem.img}}">
+                    </span>
+                    <span class="thumb-right">
+                        <span class="thumb-right-title til-row1">{{disItem.title}}</span>
+                        <div class="til-row2">
+                            <div class="thumb-price-group">
+                                <p class="new-price">{{disItem.new_price}}万</p>
+                                <p class="old-price">{{disItem.old_price}}万</p>
+                            </div>
+                            <div class="thumb-btn-group">
+                                <p class="thumb-btn"><a href="#/groupB/{{disItem.id}}">我想购买</a></p>
+                                <p class="low-price">降{{disItem.difference_price}}万</p>
+                            </div>
+                        </div>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

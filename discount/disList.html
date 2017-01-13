@@ -1,0 +1,36 @@
+<div class="scrollable" ng-controller="ceDiscountList">
+    <div ui-content-for="title">
+        <span>{{title}}</span>
+    </div>
+    <div class="scrollable-content ce-onSell ce-latest">
+            <div infinite-scroll='loadNewList()' infinite-scroll-distance='0' >
+                <div class="list-group-item" ng-repeat="item in discount_list">
+                    <div class="thumb-item">
+                    <span class="thumb-left">
+                        <span class="thumb-right-title til-row1">{{item.title}}</span>
+                        <div class="thumb-price-group">
+                            <span class="old-price navbar-brand-center">{{item.old_price}}万</span>
+                            <span class="new-price pull-left">{{item.new_price}}万</span>
+                            <span class="low-price pull-right">降{{item.difference_price}}万</span>
+                        </div>
+                    </span>
+                    <span class="thumb-right">
+                         <p class="thumb-btn"><a href="#/groupB/{{item.id}}">我想购买</a></p>
+                    </span>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!--类型选择弹窗-->
+    <div class="latest-panel" ng-show="ifPanel">
+        <a ng-click="initList('new')"><i class="fa fa-star-o"></i>最新发布</a>
+        <a ng-click="initList('difference')"><i class="fa fa-line-chart"></i>降幅最高</a>
+        <a ng-click="initList('price')"><i class="fa fa-usd"></i>价格最低</a>
+    </div>
+    <div ui-content-for="navbarAction">
+        <div class="btn sidebar-toggle" ng-click="ifPanel=!ifPanel">
+            <i class="fa fa-chevron-down h-circle"></i>
+        </div>
+    </div>
+</div>
+

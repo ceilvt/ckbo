@@ -1,0 +1,55 @@
+<div ui-content-for="title">
+    <span>咨讯详情</span>
+</div>
+
+<div class="scrollable" ng-controller="ceArticle">
+    <div class="scrollable-content">
+        <div class="section bBorder">
+            <h4 class="ct_title">{{article.title}}</h4>
+            <div class="app-title font_15">
+                <span class="column fontLeft colour_1">{{article.source}}</span>
+                <span class="column fontLeft colour_1">{{article.addtime}}</span>
+                <span class="column fontRight colour_2">阅读量:{{article.show_num}}</span>
+            </div>
+            <div ng-bind-html="article.content" class="article-cont"></div>
+
+            <h5 class="ct_title pd_10 fontRight">作者 : {{article.author}}</h5>
+
+            <hr class="Border" />
+
+            <h4 class="">团购购车</h4>
+            <div ng-repeat="group in groupData">
+                <img ng-src="{{group.img}}" class= "ct_bottom_5 ct_banner" />
+
+                <h4 class="ct_title2 ct_Mbottom_5"><a href="#/groupC/{{group.id}}">{{group.title}}</a></h4>
+
+                <div class="app-title font_15">
+                    <span class="column fontLeft colour_1">{{group.start_time}}至{{group.end_time}}</span>
+                    <span class="column fontRight colour_1 span1">{{group.sign_num}}人已报名</span>
+                </div>
+            </div>
+
+
+            <hr class="Border ct_Mbottom_5" />
+
+            <h4 class="ct_title2">与本车相关资讯</h4>
+            <div class="carBox" ng-repeat="relData in relatedData">
+
+                <img class="box_1" ng-src="{{relData.img}}">
+                <span class="span_1"><a href="#/article/{{relData.id}}">{{relData.title}}</a></span>
+                <div class="app-title font_15  fg">
+                    <span class="column fontLeft colour_1">{{relData.source}}</span>
+                    <span class="column fontRight colour_2">阅读量:{{relData.show_num}}</span>
+                </div>
+                <hr class="Border ct_Mbottom_5" />
+            </div>
+
+            <div class="bottomBox">
+                <div class="b_b1">
+                <img src="./custom/img/consultation/icon.png" /><span class="colour_1">写评论</span>
+                    </div>
+            <div class="b_b2">    <img src="./custom/img/consultation/img1.png" /> <span class="span2">88条评论</span> </div>
+            </div>
+        </div>
+    </div>
+</div>

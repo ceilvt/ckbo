@@ -1,0 +1,26 @@
+<div ui-content-for="title">
+    <span>团购活动</span>
+</div>
+<div class="scrollable" ng-controller="ctrlBuyGroup">
+    <div class="scrollable-content ce-buy">
+        <div infinite-scroll='loadData()' infinite-scroll-distance='0'>
+            <div class="list-group no-margin" ng-repeat="item in dataList">
+                <div class="ctxBox banner" ng-click="details(item.id)">
+
+                    <img ng-src="{{item.img}}">
+
+                    <span class="til" >{{item.title}}</span>
+                    <p class="detail">
+                        <span>{{item.start_time}}至{{item.end_time}}</span>
+                        <span>{{item.city}}</span>
+                    </p>
+                    <p class="detail">
+                        <span class="djs">{{countdown[item.id]}}</span>
+                        <span class="bmtj pull-right">{{item.sign_num}}人参与</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

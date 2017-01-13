@@ -1,0 +1,46 @@
+<div ui-content-for="title">
+    <span>定金抵现</span>
+</div>
+<div ui-content-for="navbarAction">
+</div>
+<div class="scrollable ce-verify" ng-controller="verifyCtrl">
+    <div class="scrollable-content ce-act">
+
+        <form name="groupBuyForm">
+            <!--团购活动表单-->
+
+                <div class="formDiv">
+                        <p class="list">
+                            <span class="sec">手机号:</span>
+                            <span class="sec1">
+                                <input type="tel" name="tel" minlength="11" placeholder="请输入您的手机号" maxlength="11" ng-pattern="/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[6-8]{1})|145|147)+\d{8})$/">
+                            </span>
+                        </p>
+                    <p class="list">
+                        <span class="sec">验证码:</span>
+                            <span class="sec1 sec2">
+                                <input type="text" name="code" placeholder="请输入短信验证码">
+                            </span>
+                            <span class="sec3">
+                                <input type="button" name="veriBtn" value="获取验证码">
+                            </span>
+                    </p>
+                    <div class="payBtn">
+                        立即支付
+                    </div>
+
+                </div>
+            <div class="messBox" ng-if="isPanel">
+                <span class="messText" >
+                    <p class="mt_58">您的资料已经提交给客服</p>
+                    <p>我们会在三个工作日内联系您</p>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+

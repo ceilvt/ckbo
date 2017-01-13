@@ -1,0 +1,51 @@
+<div class="scrollable ctxBoxHome"  ng-controller="homeCtrl">
+    <div class="scrollable-content">
+        <!--首页 轮播banner-->
+        <div class="banner home-banner">
+            <ng-swiper-container show-nav-buttons="false" autoplay="1000" speed="2000" loop="true" looped-slides="2" show-pagination="true">
+                <ng-swiper-slide class="swiper-slide" ng-repeat="banner in banner_home1">
+                    <a ng-href={{banner.url}}>
+                        <img ng-src="{{banner.img}}">
+                    </a>
+                </ng-swiper-slide>
+            </ng-swiper-container>
+        </div>
+        <!--首页主菜单栏-->
+        <div class="list-group text-center no-margin">
+            <div class="list-group-item main-menu">
+                <ul class="home-group justified">
+                    <li class="h-icon" ng-repeat="item in menuList" >
+                        <a ng-if="item.show == 'yes'" ng-href={{item.link}}>
+                            <img ng-src={{item.img}}>
+                            <span>{{item.label}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--首页静态banner-->
+        <div class="list-group">
+            <div class="banner">
+                <a ng-href={{banner_home2.url}}>
+                    <img ng-src={{banner_home2.img}}>
+                </a>
+            </div>
+        </div>
+
+        <!--首页子菜单栏-->
+        <div class="list-group text-center bottom">
+            <div class="list-group-item sub-menu">
+                <ul class="home-group">
+                    <ol ng-repeat="olitem in olen" class="justified">
+                        <li class="h-icon" ng-repeat="item in olitem">
+                            <a ng-if="item.show == 'yes'" ng-href={{item.link}}>
+                                <img ng-src={{item.img}}>
+                                <span>{{item.label}}</span>
+                            </a>
+                        </li>
+                    </ol>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

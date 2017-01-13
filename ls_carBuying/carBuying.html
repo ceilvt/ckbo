@@ -1,0 +1,15 @@
+<div ui-content-for="title">
+    <span>购车分期</span>
+</div>
+<div class="scrollable" ng-controller="ctrlCarBuying">
+    <div class="scrollable-content">
+        <div class="section" infinite-scroll='loadData()' infinite-scroll-distance='0'>
+            <a herf="javascript:;" ng-repeat="item in dataList">
+                <img ng-src="{{item.img}}" ng-click="details(item.id)" class="fl fb_10">
+            </a>
+        </div>
+
+    </div>
+
+</div>
+

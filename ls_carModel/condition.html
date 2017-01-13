@@ -1,0 +1,90 @@
+<div  ng-controller="conditionCrl">
+<div ng-show="condition_show">
+    <div ui-content-for="title">
+        <div class="title_1" ng-click="gotoCl1()"><span>品牌</span></div>
+        <div class="title_1"><span class="sel_t1">条件</span></div>
+    </div>
+
+    <div class="scrollable">
+        <div class="scrollable-content">
+
+            <span class="title_2 df">价格</span>
+
+            <div class="app-title font_15 pl_15 pr_15 mt_15 fl">
+                <span class="column fontLeft colour_1 moner_1">{{submit_data.min_price}}万</span>
+                <span class="column fontRight colour_1 money_2">{{submit_data.max_price}}万</span>
+            </div>
+
+            <div class="lsDemo">
+                <input class="range-slider" type="hidden" value="{{submit_data.min_price}},{{submit_data.max_price}}"/>
+                <button id="g2" style="display: none">获取值</button>
+            </div>
+
+            <span class="title_2 df">级别</span>
+            <style>
+                li.t-icon {
+                    float: left;
+                    width: 33%;
+                }
+
+                .Mr_t15 > li img.active {
+                    -webkit-filter: grayscale(0.2) contrast(0);
+                    -moz-filter: grayscale(0.2) contrast(0);
+                    -o-filter: grayscale(0.2) contrast(0);
+                    -ms-filter: grayscale(0.2) contrast(0);
+                    filter: grayscale(0.2) contrast(0);
+                }
+            </style>
+            <ul class="Mr_t15" style="width: 100%;">
+                <li class="t-icon" ng-repeat="(key,item) in condition_data.series_model">
+                    <img ng-src="custom/img/carmodel/{{item}}.png" ng-class="select_this_model == $index ? 'active' :''"
+                         ng-click="selectCarModel({{key}},$index)">
+                    <span ng-click="selectCarModel({{key}})">{{item}}</span>
+                </li>
+            </ul>
+
+            <span class="title_2 df">排量</span>
+
+            <div class="countryBox">
+                <span ng-class="select_this == $index ? 'bc_2' :''" ng-repeat="item in condition_data.car_displacement"
+                      ng-click="selectCarDisplacement({{item.max}},{{item.min}},$index)">{{item.name}}</span>
+            </div>
+
+            <div class="bottomBox_1">
+
+                <div class="btn_1" ng-click="reset()">重置</div>
+                <div class="btn_2" ng-click="addInfo()">按条件查询</div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div ng-show="condition_result_show">
+    <div ui-content-for="title">
+        <span class="">选车</span>
+    </div>
+
+    <!--<div ui-content-for="navbarAction">
+        <div ui-toggle="uiSidebarRight" class="btn sidebar-right-toggle">
+            <img src="custom/img/search.png" width="30px">
+        </div>
+    </div>-->
+
+    <div class="chooseCar_tBox">
+        <span ng-class="{1: 'cb_yes', 0: ''}[sel]" ng-click="setType(1)">最贵</span><i class="seprate"></i>
+        <span ng-class="{1: '', 0: 'cb_yes'}[sel]" ng-click="setType(0)">最便宜</span>
+    </div>
+
+    <div class="scrollable-content ls_pos">
+        <div class="carBoxLeft">
+            <div ng-repeat="(key,item) in result_data" ng-click="gotoModalDetail(item.id)">
+                <img ng-src="{{item.img}}" class="imgBg">
+                <span>{{item.name}}</span>
+                <span class="fC_2">{{item.min_price}}-{{item.max_price}}万</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

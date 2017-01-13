@@ -1,0 +1,34 @@
+<div ui-content-for="title">
+    <span>全部车型</span>
+</div>
+<div ui-content-for="navbarAction">
+</div>
+<div ng-controller="disAllCars" class="ce-buy">
+    <div class="scrollable" >
+        <div class="scrollable-content ">
+            <div id="cars-wrapper"  ng-repeat="(chart,chartItem) in charSets">
+                <span class="title_2" id="{{chart}}_link">{{chart}}</span>
+                <div class="carBoxArr" ng-repeat="brand in chartItem" ng-click="openModalPanel(brand.id)">
+                    <img ng-src={{brand.img}} />
+                    <span ng-click="openModalPanel(brand.id)">{{brand.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightBox">
+        <span ng-click="gotoLetter(chart)" ng-repeat="(chart,index) in charSets">{{chart}}</span>
+    </div>
+    <div class="scrollable mask " ng-show="modalShow" ng-click="closeModalPanel()">
+        <div class="myScrollable scrollable-content" ng-click="stopClose($event)">
+            <span class="title_2">{{currentBrandList.brand_name}}</span>
+            <div class="carBox2"  ng-repeat="carsItem in currentBrandList.son_series">
+                <div class="box_2">
+                    <img  ng-src={{carsItem.img}} ng-click="gotoModalDetail(carsItem.id)">
+                </div>
+                <span class="mt_1">{{carsItem.name}}</span>
+                <span class="mt_2 colour_1">{{carsItem.min_price}}-{{carsItem.max_price}}</span>
+            </div>
+        </div>
+
+    </div>
+</div>
